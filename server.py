@@ -1,7 +1,7 @@
 from flask import Flask, render_template,request,redirect,session
 
 app = Flask(__name__)
-app.secret_key = 'keey it secret'
+app.secret_key = 'keep it secret'
 
 
 #Bonus: display how many times the user has actually visited the page
@@ -56,7 +56,6 @@ def counter_form():
         print('key exists!')
         session['count_plus'] += (int)(request.form['counter'])
         session['sum'] =session['count']+ session['count_plus']
-        
     else:
         print("key 'count_plus' does NOT exist")
         session ['sum'] = 0
