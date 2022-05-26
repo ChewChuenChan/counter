@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class ="display-1 p-3 mb-2 bg-primary text-white my-3 text-center">Counter</h1>
+        <div class="first_row">
+            <h1 class="display-3">{{session["sum"]}} <span style="font-size:30px">times</span></h1> 
+            <div class="bottons">
+                <button class="click"><a class="text-success" href ="/">Click</a></button>
+                <button class="doublevisits"><a class="text-secondary" href ="/add_2_visits">Add two visits</a></button>
+                <button class ="reset"><a href="/destroy_session">Reset</a></button>
+            </div>
+        </div>
+        <div class="mid_row">
+            <div class="counter_form">
+                <h2>Counter Form</h2>
+                <form action='/form', method="POST">
+                    <label for='counter'>Counter</label>
+                    <input type='number' name='counter'>
+                    <button class ="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 text-white bg-dark">
+                <h2>Counter of user visited the page</h2>
+            </div>
+            <div class="col-4 text-white bg-dark">
+                <h3>{{session['count']}} <span style="font-size:30px">times</span></h3>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-8">
+                <h2>The value of the counter</h2>
+            </div>
+            <div class="col-4">
+                <h3>{{session['count_plus']}} <span style="font-size:30px">times</span></h3>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
