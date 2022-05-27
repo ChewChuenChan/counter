@@ -18,8 +18,10 @@ app.secret_key = 'keep it secret'
 # Refresh the page several times to ensure the counter is working
 @app.route('/')
 def index():
-    session['count_plus']=0
-    session['sum']=0
+    if not 'count_plus' in session:
+        session['count_plus']=0
+    if not 'sum' in session:
+        session['sum']=0
     if 'count' in session:
         print('key exists!')
         session['count'] += 1
@@ -59,7 +61,7 @@ def counter_form():
     else:
         print("key 'count_plus' does NOT exist")
         session ['sum'] = 0
-    return render_template("index.html")
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug = True)
